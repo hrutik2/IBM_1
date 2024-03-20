@@ -31,7 +31,7 @@ UserRoutes.post("/login",async(req,res)=>{
         if(user){
             bcrypt.compare(password,user.password, (err, result)=> {
                 
-                if(err){
+                if(!result){
                     res.status(400).send("wrong credential")  
                 }
                 else{
